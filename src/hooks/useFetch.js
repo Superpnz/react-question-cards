@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export const useFetch = (callback) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -14,6 +15,7 @@ export const useFetch = (callback) => {
       return response;
     } catch (error) {
       setError(error.message);
+      toast.error(error.message);
     } finally {
       setIsLoading(false);
     }
