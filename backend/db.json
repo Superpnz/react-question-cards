@@ -10,7 +10,7 @@
         "https://react.dev/reference/react"
       ],
       "level": 1,
-      "completed": true,
+      "completed": false,
       "editDate": "03.02.2026, 19:49"
     },
     {
@@ -69,7 +69,7 @@
         "https://react.dev/learn/state-a-components-memory"
       ],
       "level": 2,
-      "completed": true
+      "completed": false
     },
     {
       "id": "7",
@@ -80,7 +80,7 @@
         "https://react.dev/reference/react/useState"
       ],
       "level": 2,
-      "completed": true
+      "completed": false
     },
     {
       "id": "8",
@@ -91,7 +91,7 @@
         "https://react.dev/reference/react/useEffect"
       ],
       "level": 2,
-      "completed": true
+      "completed": false
     },
     {
       "id": "9",
@@ -113,7 +113,7 @@
         "https://react.dev/learn/keeping-components-pure"
       ],
       "level": 3,
-      "completed": true
+      "completed": false
     },
     {
       "id": "11",
@@ -168,7 +168,7 @@
         "https://react.dev/learn/responding-to-events"
       ],
       "level": 2,
-      "completed": true
+      "completed": false
     },
     {
       "id": "16",
@@ -378,7 +378,7 @@
         "https://redux.js.org"
       ],
       "level": 3,
-      "completed": true
+      "completed": false
     },
     {
       "id": "35",
@@ -565,5 +565,6 @@
       "level": 1,
       "completed": false
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
