@@ -1,7 +1,7 @@
 import { Button } from "../Button";
 import cls from "./QuestionForm.module.css";
 
-export const QuestionForm = ( {formAction, formState, isPending, submitBtnText}) => {
+export const QuestionForm = ({ formAction, formState, isPending, submitBtnText }) => {
   return (
     <form action={formAction} className={cls.form}>
       <div className={cls.formControl}>
