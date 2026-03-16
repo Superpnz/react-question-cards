@@ -555,15 +555,6 @@
       ],
       "level": 3,
       "completed": false
-    },
-    {
-      "id": "e5c9",
-      "question": "Ты крут в React?",
-      "answer": "🍏 канэшна 🍏ee",
-      "description": "Потому что React мне очень нравится и я уже много с ним практикуюсь",
-      "resources": [],
-      "level": 1,
-      "completed": false
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
