@@ -4,30 +4,22 @@ import { THEME_STORAGE } from "../constants";
 export const ThemeContext = createContext(null);
 
 export const ThemeProvider = ({ children }) => {
-  const savedTheme = localStorage.getItem(THEME_STORAGE) || "light";
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem(THEME_STORAGE);
+    if (saved) return saved;
 
-  const [theme, setTheme] = useState(savedTheme);
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  });
 
   useLayoutEffect(() => {
-    const detectTheme = () => {
-      const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (theme === "dark") {
+      document.body.classList.add("darkLayout");
+    } else {
+      document.body.classList.remove("darkLayout");
+    }
 
-      if (isDark) {
-        setTheme("dark");
-        document.body.classList.remove("darkLayout");
-      } else {
-        savedTheme === "dark" && document.body.classList.add("darkLayout");
-        setTheme(savedTheme);
-      }
-    };
-    detectTheme();
+    localStorage.setItem(THEME_STORAGE, theme);
+  }, [theme]);
 
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    mediaQuery.addEventListener("change", detectTheme);
-
-    return () => {
-      mediaQuery.removeEventListener("change", detectTheme);
-    };
-  }, []);
   return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
 };
