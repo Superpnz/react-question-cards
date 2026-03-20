@@ -10,7 +10,6 @@ export const ThemeToggler = () => {
     const updatedTheme = isChecked ? "light" : "dark";
 
     setTheme(updatedTheme);
-    // isChecked ? document.body.classList.add("darkLayout") : document.body.classList.remove("darkLayout");
     if (updatedTheme === "dark") {
       document.body.classList.add("darkLayout");
     } else {
