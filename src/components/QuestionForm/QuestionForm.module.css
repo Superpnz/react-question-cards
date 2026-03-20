@@ -22,6 +22,7 @@
     }
 
     select, textarea {
+        max-width: stretch;
         padding: 5px;
         color: var(--text-color);
         background-color: var(--main-bg-color);
