@@ -40,6 +40,36 @@
 
 @media(max-width: 576px) {
     .controlsContainer {
-        flex-wrap: wrap-reverse;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        align-items: start;
+    }
+
+    .sortSelect {
+        grid-column: 1 / 2;
+        grid-row: 1;
+    }
+
+    .countSelect {
+        grid-column: 2 / 3;
+        grid-row: 1;
+    }
+
+    .searchInput {
+        grid-column: 1 / 3;
+        grid-row: 2;
+        width: 100%;
+    }
+
+    .searchButton {
+        grid-column: 1 / 3;
+        grid-row: 3;
+        width: 100%;
+        text-align: center;
+    }
+
+    .searchButton button {
+        width: 100%;
     }
 }
