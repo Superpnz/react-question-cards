@@ -25,3 +25,22 @@
     align-items: center;
     gap: 10px;
 }
+
+@media(max-width: 426px) {
+    .header {
+        padding: 0 15px;
+    }
+
+    .headerButtons {
+        gap: 5px;
+    }
+
+    .headerButtons button {
+        font-size: 15px;
+    }
+}
+@media(max-width: 380px) {
+    .headerButtons button {
+        font-size: 14.5px;
+    }
+}
