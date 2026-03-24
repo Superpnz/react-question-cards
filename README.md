@@ -1,16 +1,74 @@
-# React + Vite
+# 🧠 React Question Cards App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Интерактивное SPA-приложение для тренировки знаний с помощью карточек вопросов.
+Проект демонстрирует навыки разработки пользовательских интерфейсов на React, работу с состоянием и построение масштабируемой структуры приложения.
 
-Currently, two official plugins are available:
+🔗 **Демо:** https://react-question-cards-app.onrender.com/
+📦 **Репозиторий:** https://github.com/Superpnz/react-question-cards
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 О проекте
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Это учебно-практический проект, созданный для демонстрации навыков фронтенд-разработки.
 
-## Expanding the ESLint configuration
+Основной фокус:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* построение компонентной архитектуры
+* управление состоянием приложения
+* создание отзывчивого UI
+* организация чистой структуры проекта
+
+---
+
+## ✨ Функциональность
+
+* 📚 Отображение карточек с вопросами
+* 🎯 Интерактивное взаимодействие
+* 👆 Возможность взаимодействия с карточками
+* 🧠 Тренировка знаний в формате карточек
+* ⚡ Быстрая загрузка и плавная работа интерфейса
+* 📱 Адаптивная верстка
+
+---
+
+## 🧠  Что демонстрирует проект
+
+* Работу с **React hooks**
+* Разделение логики и UI
+* Управление состоянием (state)
+* Переиспользуемые компоненты
+* Базовая архитектуру SPA
+* Чистый и поддерживаемый код
+
+---
+
+## 🛠️ Стек технологий
+
+* **React**
+* **Vite**
+* **JavaScript (ES6+)**
+* **CSS / SCSS**
+* **ESLint**
+
+---
+
+## 📁 Архитектура проекта
+
+```bash
+src/
+ ├── components/   # переиспользуемые UI-компоненты
+ ├── pages/        # страницы приложения
+ ├── assets/       # статические ресурсы
+ ├── hooks/        # кастомные хуки
+ ├── utils/        # вспомогательные функции
+ ├── App.jsx
+ └── main.jsx
+```
+
+---
+
+## 👨‍💻 Автор
+
+**Superpnz / Maxim Anikeev**
+GitHub: https://github.com/Superpnz
