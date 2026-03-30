@@ -28,6 +28,7 @@ export default defineConfig([
       "react-refresh/only-export-components": "warn",
       "no-unused-vars": "off",
       "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-unused-expressions": "warn",
       "@typescript-eslint/no-unused-vars": [
         "error",
         {
