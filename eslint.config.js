@@ -25,6 +25,7 @@ export default defineConfig([
       globals: globals.browser,
     },
     rules: {
+      "react-refresh/only-export-components": "warn",
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": [
         "error",
