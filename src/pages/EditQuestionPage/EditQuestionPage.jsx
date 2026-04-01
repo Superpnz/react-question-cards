@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useFetch } from "../../hooks/useFetch";
-import { API_URL } from "../../constants";
+import { API_URL } from "../../constants/global.constants";
 import { useEffect, useState } from "react";
 import { Loader } from "../../components/Loader";
 import { EditQuestion } from "./EditQuestion";

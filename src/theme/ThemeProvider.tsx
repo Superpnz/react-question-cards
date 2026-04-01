@@ -1,5 +1,5 @@
 import { createContext, useLayoutEffect, useState } from "react";
-import { THEME_STORAGE } from "../constants";
+import { THEME_STORAGE } from "../constants/global.constants";
 import { THEME_ENUM } from "../types/global.types";
 import type { FC, ReactNode } from "react";
 import type { IThemeContext } from "../types/global.types";

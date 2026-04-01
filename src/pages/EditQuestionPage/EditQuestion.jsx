@@ -2,7 +2,7 @@ import { useActionState } from "react";
 import cls from "./EditQuestionPage.module.css";
 import { Loader } from "../../components/Loader";
 import { QuestionForm } from "../../components/QuestionForm";
-import { API_URL } from "../../constants";
+import { API_URL } from "../../constants/global.constants";
 import { toast } from "react-toastify";
 import { dateFormat } from "../../helpers/dateFormat";
 import { useFetch } from "../../hooks/useFetch";
