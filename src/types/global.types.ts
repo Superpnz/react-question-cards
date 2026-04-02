@@ -21,3 +21,6 @@ export interface IQuestionCard {
   completed: boolean;
   editDate?: string;
 }
+export interface IQuestionCardState extends IQuestionCard {
+  clearForm: boolean;
+}
