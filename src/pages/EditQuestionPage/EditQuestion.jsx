@@ -73,7 +73,7 @@ export const EditQuestion = ({ initialState = {} }) => {
 
         <QuestionForm
           formAction={formAction}
-          formState={formState}
+          cardState={formState}
           isPending={isPending || isQuestionRemoving}
           submitBtnText="Edit Question"
         />
