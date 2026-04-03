@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useState, useEffect, useMemo, useRef, type ChangeEvent, type MouseEvent } from "react";
 import { API_URL } from "../../constants/global.constants";
 import { QuestionCardList } from "../../components/QuestionCardList";
 import { Loader } from "../../components/Loader";
@@ -7,19 +7,24 @@ import cls from "./HomePage.module.css";
 import { SearchInput } from "../../components/SearchInput";
 import { Button } from "../../components/Button";
 import { toast } from "react-toastify";
+import type { IQuestionCard, IQuestionCardData } from "../../types/global.types";
 
 const DEFAULT_PER_PAGE = 10;
 
 export const HomePage = () => {
-  const [searchParams, setSearchParams] = useState(`?_page=1&_per_page=${DEFAULT_PER_PAGE}`);
-  const [questions, setQuestions] = useState([]);
-  const [searchValue, setSearchValue] = useState("");
-  const [sortSelectValue, setSortSelectValue] = useState("");
-  const [countSelectValue, setCountSelectValue] = useState(DEFAULT_PER_PAGE);
+  const [searchParams, setSearchParams] = useState<string>(`?_page=1&_per_page=${DEFAULT_PER_PAGE}`);
+  const [questions, setQuestions] = useState<IQuestionCardData | null>(null);
+  const [searchValue, setSearchValue] = useState<string>("");
+  const [sortSelectValue, setSortSelectValue] = useState<string>("");
+  const [countSelectValue, setCountSelectValue] = useState<number>(DEFAULT_PER_PAGE);
 
-  const controlsContainerRef = useRef();
+  const controlsContainerRef = useRef<HTMLDivElement | null>(null);
 
-  const getActivePageNumber = () => (questions.next === null ? questions.last : questions.next - 1);
+  const getActivePageNumber = (questions: IQuestionCardData): number | null => {
+    if (questions.next === null) return questions.last ?? null;
+    return (questions.next ?? 1) - 1;
+  };
+  // questions.next === null ? questions.last : questions.next - 1;
 
   const [getQuestions, isLoading, error] = useFetch(async (url) => {
     const response = await fetch(`${API_URL}/${url}`);
@@ -53,24 +58,24 @@ export const HomePage = () => {
     getQuestions(`react${searchParams}`);
   }, [searchParams]);
 
-  const onSearchChangeHandler = (e) => {
+  const onSearchChangeHandler = (e: ChangeEvent<HTMLInputElement>): void => {
     setSearchValue(e.target.value);
   };
 
-  const onSortSelectChangeHandler = (e) => {
+  const onSortSelectChangeHandler = (e: ChangeEvent<HTMLSelectElement>): void => {
     setSortSelectValue(e.target.value);
     setSearchParams(`?_page=1&_per_page=${countSelectValue}&${e.target.value}`);
   };
 
-  const onCountSelectChangeHandler = (e) => {
-    setCountSelectValue(e.target.value);
+  const onCountSelectChangeHandler = (e: ChangeEvent<HTMLSelectElement>): void => {
+    setCountSelectValue(+e.target.value);
     setSearchParams(`?_page=1&_per_page=${e.target.value}&${sortSelectValue}`);
   };
 
-  const paginationHandler = (e) => {
-    if (e.target.tagName === "BUTTON") {
-      setSearchParams(`?_page=${e.target.textContent}&_per_page=${countSelectValue}&${sortSelectValue}`);
-      controlsContainerRef.current.scrollIntoView({ behavior: "smooth" });
+  const paginationHandler = (e: MouseEvent<HTMLDivElement>): void => {
+    if ((e.target as HTMLElement).tagName === "BUTTON") {
+      setSearchParams(`?_page=${(e.target as HTMLElement).textContent}&_per_page=${countSelectValue}&${sortSelectValue}`);
+      controlsContainerRef.current?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -82,7 +87,7 @@ export const HomePage = () => {
         throw new Error(`Loading error: ${response.status} ${response.statusText}`);
       }
 
-      const data = await response.json();
+      const data: IQuestionCard[] = await response.json();
 
       if (!searchValue.trim()) {
         setQuestions({
@@ -114,8 +119,8 @@ export const HomePage = () => {
       }
 
       setSearchValue("");
-    } catch (err) {
-      toast.error(err.message);
+    } catch (err: any) {
+      toast.error(err?.message);
     }
   };
 
@@ -166,7 +171,7 @@ export const HomePage = () => {
         pagination.length > 1 && (
           <div className={cls.paginationContainer} onClick={paginationHandler}>
             {pagination.map((value) => (
-              <Button key={value} isActive={value === getActivePageNumber()}>
+              <Button key={value} isActive={value === getActivePageNumber(questions as IQuestionCardData)}>
                 {value}
               </Button>
             ))}
