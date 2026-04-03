@@ -4,11 +4,12 @@ import { toast } from "react-toastify";
 import { API_URL } from "../../constants/global.constants";
 import { Loader } from "../../components/Loader";
 import { QuestionForm } from "../../components/QuestionForm";
+import type { IQuestionCardState } from "../../types/global.types";
 
-const createCardAction = async (_prevState, formData) => {
+const createCardAction = async (_prevState: Partial<IQuestionCardState>, formData: FormData) => {
   try {
     const newQuestion = Object.fromEntries(formData);
-    const resources = newQuestion.resources.trim();
+    const resources = (newQuestion.resources as string).trim();
     const isClearForm = newQuestion.clearForm;
 
     const response = await fetch(`${API_URL}/react`, {
@@ -32,14 +33,16 @@ const createCardAction = async (_prevState, formData) => {
     toast.success("New question is successfully created!");
 
     return isClearForm ? {} : question;
-  } catch (error) {
-    toast.error(error.message);
+  } catch (error: any) {
+    toast.error(error?.message);
     return {};
   }
 };
 
 const AddQuestionPage = () => {
-  const [formState, formAction, isPending] = useActionState(createCardAction, { clearForm: true });
+  const [formState, formAction, isPending] = useActionState<Partial<IQuestionCardState>, FormData>(createCardAction, {
+    clearForm: true,
+  });
   return (
     <>
       {isPending && <Loader />}
