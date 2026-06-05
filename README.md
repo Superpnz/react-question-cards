@@ -68,6 +68,42 @@ src/
 
 ---
 
+## ⚙️ Установка и запуск
+
+### 📥 Клонирование репозитория
+
+```bash
+git clone https://github.com/Superpnz/react-question-cards.git
+cd react-question-cards
+git checkout dev
+```
+
+### 📦 Установка зависимостей
+
+```bash
+npm install
+```
+
+### 🚀 Запуск фронтенда и бэкенда одновременно
+```bash
+npm run start:app
+```
+После запуска будут доступны:
+- Frontend: http://localhost:5173
+- Backend (json-server): http://localhost:8801
+
+### 🏗️ Сборка для продакшена
+```bash
+npm run build
+```
+
+### 👀 Предпросмотр собранного проекта
+```bash
+npm run preview
+```
+
+---
+
 ## 👨‍💻 Автор
 
 **Superpnz / Maxim Anikeev**
